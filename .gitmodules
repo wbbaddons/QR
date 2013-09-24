@@ -1,0 +1,3 @@
+[submodule "file/lib/system/api/qr"]
+	path = file/lib/system/api/qr
+	url = git://github.com/Bacon/BaconQrCode
