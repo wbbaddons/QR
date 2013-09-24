@@ -3,7 +3,7 @@ namespace wcf\system\template\plugin;
 use wcf\util\StringUtil;
 
 /**
- * Creates an <img>-Tag with the given contents encoded in a QR-Code
+ * Creates an <img>-Tag with the given contents encoded in a QR-Code.
  * 
  * @author	Tim Düsterhus
  * @copyright	2013 Tim Düsterhus
@@ -19,6 +19,7 @@ class QrModifierTemplatePlugin implements IModifierTemplatePlugin {
 		require_once(WCF_DIR.'lib/system/api/qr/autoload_register.php');
 		
 		$errorCorrection = new \BaconQrCode\Common\ErrorCorrectionLevel(\BaconQrCode\Common\ErrorCorrectionLevel::L);
+		$size = 150;
 		$content = $tagArgs[0];
 		
 		// error correction level
@@ -27,8 +28,14 @@ class QrModifierTemplatePlugin implements IModifierTemplatePlugin {
 			if (!in_array(mb_strtoupper($tagArgs[1]), $values)) throw new \wcf\system\exception\SystemException("Unknown error correction level '".mb_strtoupper($tagArgs[1])."'");
 			$errorCorrection->change(constant('\BaconQrCode\Common\ErrorCorrectionLevel::'.mb_strtoupper($tagArgs[1])));
 		}
+		// minimum size
+		if (isset($tagArgs[2])) {
+			$size = intval($tagArgs[2]);
+		}
 		
 		$renderer = new \BaconQrCode\Renderer\Image\Svg();
+		$renderer->setWidth($size);
+		$renderer->setHeight($size);
 		$qrCode = \BaconQrCode\Encoder\Encoder::encode($content, $errorCorrection);
 		
 		return '<img src="data:image/svg+xml;base64,'.base64_encode($renderer->render($qrCode)).'" alt="'.StringUtil::encodeHTML($content).'" />';
