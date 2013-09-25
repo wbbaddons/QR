@@ -42,7 +42,7 @@ class QrModifierTemplatePlugin implements IModifierTemplatePlugin {
 		$renderer = new \BaconQrCode\Renderer\Image\Svg();
 		$renderer->setWidth($size);
 		$renderer->setHeight($size);
-		$qrCode = \BaconQrCode\Encoder\Encoder::encode($content, $errorCorrection);
+		$qrCode = \BaconQrCode\Encoder\Encoder::encode($content, $errorCorrection, 'UTF-8');
 		
 		return '<img src="data:image/svg+xml;base64,'.base64_encode($renderer->render($qrCode)).'" alt="'.StringUtil::encodeHTML($content).'" />';
 	}
