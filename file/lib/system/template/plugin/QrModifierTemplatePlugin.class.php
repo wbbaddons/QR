@@ -6,10 +6,10 @@ use wcf\util\StringUtil;
  * Creates an <img>-Tag with the given contents encoded in a QR-Code.
  * 
  * Usage:
- * 	{"Never gonna give you up"|qr:'L':150}
+ * 	{"Never gonna give you up"|qr:'L':150:4}
  * 
- * First parameter is the value, second the error correction level and third the
- * minimum size.
+ * First parameter is the value, second the error correction level, third the
+ * minimum size and fifth the margin size.
  * 
  * @author	Tim Düsterhus
  * @copyright	2013 Tim Düsterhus
@@ -26,6 +26,7 @@ class QrModifierTemplatePlugin implements IModifierTemplatePlugin {
 		
 		$errorCorrection = new \BaconQrCode\Common\ErrorCorrectionLevel(\BaconQrCode\Common\ErrorCorrectionLevel::L);
 		$size = 150;
+		$margin = 0;
 		$content = $tagArgs[0];
 		
 		// error correction level
@@ -38,10 +39,15 @@ class QrModifierTemplatePlugin implements IModifierTemplatePlugin {
 		if (isset($tagArgs[2])) {
 			$size = intval($tagArgs[2]);
 		}
+		// margin
+		if (isset($tagArgs[3])) {
+			$size = intval($tagArgs[3]);
+		}
 		
 		$renderer = new \BaconQrCode\Renderer\Image\Svg();
 		$renderer->setWidth($size);
 		$renderer->setHeight($size);
+		$renderer->setMargin($margin);
 		$qrCode = \BaconQrCode\Encoder\Encoder::encode($content, $errorCorrection, 'UTF-8');
 		
 		return '<img src="data:image/svg+xml;base64,'.base64_encode($renderer->render($qrCode)).'" alt="'.StringUtil::encodeHTML($content).'" />';
