@@ -9,7 +9,7 @@ use wcf\util\StringUtil;
  * 	{"Never gonna give you up"|qr:'L':150:4}
  * 
  * First parameter is the value, second the error correction level, third the
- * minimum size and fifth the margin size.
+ * minimum size and fourth the margin size.
  * 
  * @author	Tim Düsterhus
  * @copyright	2013 Tim Düsterhus
@@ -26,7 +26,7 @@ class QrModifierTemplatePlugin implements IModifierTemplatePlugin {
 		
 		$errorCorrection = new \BaconQrCode\Common\ErrorCorrectionLevel(\BaconQrCode\Common\ErrorCorrectionLevel::L);
 		$size = 150;
-		$margin = 0;
+		$margin = 4;
 		$content = $tagArgs[0];
 		
 		// error correction level
@@ -41,7 +41,7 @@ class QrModifierTemplatePlugin implements IModifierTemplatePlugin {
 		}
 		// margin
 		if (isset($tagArgs[3])) {
-			$size = intval($tagArgs[3]);
+			$margin = intval($tagArgs[3]);
 		}
 		
 		$renderer = new \BaconQrCode\Renderer\Image\Svg();
