@@ -46,18 +46,26 @@ class QrModifierTemplatePlugin implements IModifierTemplatePlugin {
 		$renderer->setHeight($size);
 		
 		// margin
-		!isset($tagArgs[3]) ?: $renderer->setMargin(intval($tagArgs[3]));
+		if (!isset($tagArgs[3])) {
+			$renderer->setMargin(intval($tagArgs[3]));
+		}
 
 		// background
 		if (isset($tagArgs[4])) {
 			$bg = $this->hex2rgb(StringUtil::trim($tagArgs[4]));
-			!$bg ?: $renderer->setBackgroundColor(new \BaconQrCode\Renderer\Color\Rgb($bg[0], $bg[1], $bg[2]));
+			
+			if($bg) {
+				$renderer->setBackgroundColor(new \BaconQrCode\Renderer\Color\Rgb($bg[0], $bg[1], $bg[2]));
+			}
 		}
 		
 		// foreground
 		if (isset($tagArgs[5])) {
 			$fg = $this->hex2rgb(StringUtil::trim($tagArgs[5]));
-			!$fg ?: $renderer->setForegroundColor(new \BaconQrCode\Renderer\Color\Rgb($fg[0], $fg[1], $fg[2]));
+			
+			if($fg) {
+				$renderer->setForegroundColor(new \BaconQrCode\Renderer\Color\Rgb($fg[0], $fg[1], $fg[2]));
+			}
 		}
 		
 		$qrCode = \BaconQrCode\Encoder\Encoder::encode($content, $errorCorrection, 'UTF-8');
