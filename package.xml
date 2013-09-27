@@ -3,7 +3,7 @@
 	<packageinformation>
 		<packagename><![CDATA[QR]]></packagename>
 		<packagedescription><![CDATA[BaconQrCode library as WCF package.]]></packagedescription>
-		<packagedescription language="de"><![CDATA[BaconQrCode-Bibliothek as WCF-Paket.]]></packagedescription>
+		<packagedescription language="de"><![CDATA[BaconQrCode-Bibliothek als WCF-Paket.]]></packagedescription>
 		<isapplication>0</isapplication>
 		<version>1.0.0 Beta 3</version>
 		<date>2013-09-25</date>
