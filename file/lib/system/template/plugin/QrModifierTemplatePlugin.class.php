@@ -85,7 +85,7 @@ class QrModifierTemplatePlugin implements IModifierTemplatePlugin {
 			return false;
 		}
 
-		$width = strlen($matches[1][0]);
+		$width = mb_strlen($matches[1][0]);
 		
 		$r = ($width == 3 ? hexdec(mb_substr($matches[1][0], 0, 1).mb_substr($matches[1][0], 0, 1)) : hexdec(mb_substr($matches[1][0], 0, 2)));
 		$g = ($width == 3 ? hexdec(mb_substr($matches[1][0], 1, 1).mb_substr($matches[1][0], 1, 1)) : hexdec(mb_substr($matches[1][0], 2, 2)));
