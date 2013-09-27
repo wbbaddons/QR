@@ -79,7 +79,7 @@ class QrModifierTemplatePlugin implements IModifierTemplatePlugin {
      * @var string
      */
 	function hex2rgb($hex) {
-		preg_match_all('/^#([a-f0-9]{6}|[a-f0-9]{3})$/i', $hex, $matches);
+		preg_match_all('/^#?([a-f0-9]{6}|[a-f0-9]{3})$/i', $hex, $matches);
 		
 		if (!isset($matches[1][0]) || empty($matches[1][0])) {
 			return false;
