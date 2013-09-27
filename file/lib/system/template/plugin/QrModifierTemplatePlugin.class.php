@@ -54,7 +54,7 @@ class QrModifierTemplatePlugin implements IModifierTemplatePlugin {
 		if (isset($tagArgs[4])) {
 			$bg = $this->hex2rgb(StringUtil::trim($tagArgs[4]));
 			
-			if($bg) {
+			if ($bg) {
 				$renderer->setBackgroundColor(new \BaconQrCode\Renderer\Color\Rgb($bg[0], $bg[1], $bg[2]));
 			}
 		}
@@ -63,7 +63,7 @@ class QrModifierTemplatePlugin implements IModifierTemplatePlugin {
 		if (isset($tagArgs[5])) {
 			$fg = $this->hex2rgb(StringUtil::trim($tagArgs[5]));
 			
-			if($fg) {
+			if ($fg) {
 				$renderer->setForegroundColor(new \BaconQrCode\Renderer\Color\Rgb($fg[0], $fg[1], $fg[2]));
 			}
 		}
@@ -78,7 +78,7 @@ class QrModifierTemplatePlugin implements IModifierTemplatePlugin {
      *
      * @var string
      */
-	function hex2rgb($hex) {
+	private function hex2rgb($hex) {
 		preg_match_all('/^#?([a-f0-9]{6}|[a-f0-9]{3})$/i', $hex, $matches);
 		
 		if (!isset($matches[1][0]) || empty($matches[1][0])) {
