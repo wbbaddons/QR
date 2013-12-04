@@ -6,7 +6,7 @@ use wcf\util\StringUtil;
  * Creates an <img>-Tag with the given contents encoded in a QR-Code.
  * 
  * Usage:
- * 	{"Never gonna give you up"|qr:'L':150:4:'FFF':'000'}
+ * 	{@"Never gonna give you up"|qr:'L':150:4:'FFF':'000'}
  * 
  * First parameter is the value, second the error correction level, third the
  * minimum size and fourth the margin size. The fifth parameter controls the
