@@ -2,8 +2,8 @@
 <package name="be.bastelstu.wcf.qr" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/package.xsd">
 	<packageinformation>
 		<packagename><![CDATA[QR]]></packagename>
-		<packagedescription><![CDATA[BaconQrCode library as WCF package.]]></packagedescription>
-		<packagedescription language="de"><![CDATA[BaconQrCode-Bibliothek als WCF-Paket.]]></packagedescription>
+		<packagedescription><![CDATA[QR provides an easy to use template modifier which generates QR codes for you.]]></packagedescription>
+		<packagedescription language="de"><![CDATA[QR erlaubt es kinderleicht QR-Codes zu generieren und anzuzeigen, indem ein Templatemodifier zur Verfügung gestellt wird.]]></packagedescription>
 		<isapplication>0</isapplication>
 		<version>1.0.0 Beta 3</version>
 		<date>2013-09-25</date>
