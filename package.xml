@@ -5,8 +5,8 @@
 		<packagedescription><![CDATA[QR provides an easy to use template modifier which generates QR codes for you.]]></packagedescription>
 		<packagedescription language="de"><![CDATA[QR erlaubt es kinderleicht QR-Codes zu generieren und anzuzeigen, indem ein Templatemodifier zur Verfügung gestellt wird.]]></packagedescription>
 		<isapplication>0</isapplication>
-		<version>1.0.0 Beta 3</version>
-		<date>2013-09-25</date>
+		<version>1.0.0 RC 1</version>
+		<date>2013-12-12</date>
 		<license><![CDATA[BSD 2-Clause License <http://opensource.org/licenses/BSD-2-Clause>]]></license>
 	</packageinformation>
 	
@@ -23,7 +23,7 @@
 		<instruction type="file">file.tar</instruction>
 	</instructions>
 	
-	<instructions type="update" fromversion="1.0.0 Beta *">
+	<instructions type="update" fromversion="*">
 		<instruction type="file">file.tar</instruction>
 	</instructions>
 </package>
